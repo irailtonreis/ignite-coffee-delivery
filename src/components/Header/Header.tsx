@@ -14,11 +14,11 @@ const Header: React.FC = () => {
 
       <nav>
         <Address>
-          <MapPin color="#8047F8" />
+          <MapPin size={22} color="#8047F8" />
           <p>Porto Alegre, RS</p>
         </Address>
         <NavLink to="/checkout">
-          <ShoppingCart  color="#C47F17"/>
+          <ShoppingCart  color="#C47F17" size={22}/>
         </NavLink>
       </nav>
     </HeaderContainer>
