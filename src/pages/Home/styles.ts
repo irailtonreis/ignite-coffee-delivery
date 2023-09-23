@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import bannerBackground from "../../assets/banner-background.png"
 
 export const HomeContainer = styled.div``;
 export const HomeBannerContainer = styled.div`
-    background-image: url(${bannerBackground});
+    
 `;
 export const HomeBanner = styled.div`
     display: flex;
