@@ -30,7 +30,13 @@ export const BannerText = styled.div`
     margin-bottom: 66px;
   }
 `;
-export const BannerImage = styled.div``;
+export const BannerImage = styled.div`
+  img{
+    display: block;
+    max-width: 100%;
+  }
+
+`;
 
 export const BannerTextDetails = styled.div`
   display: grid;
