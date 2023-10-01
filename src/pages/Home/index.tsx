@@ -6,6 +6,7 @@ import {
   BannerText,
   BannerImage,
   BannerTextDetails,
+  IconTextBanner,
 } from "./styles";
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
@@ -26,19 +27,27 @@ const Home: React.FC = () => {
             </p>
             <BannerTextDetails>
               <div>
-                <img src={CartIconBanner} alt="" />
+                <IconTextBanner className="icon-1">
+                  <img src={CartIconBanner} alt="" />
+                </IconTextBanner>
                 <p>Compra simples e segura</p>
               </div>
               <div>
-                <img src={WrapperIconBanner} alt="" />
+                <IconTextBanner className="icon-2">
+                  <img src={WrapperIconBanner} alt="" />
+                </IconTextBanner>
                 <p>Embalagem mantém o café intacto</p>
               </div>
               <div>
-                <img src={WatchIconBanner} alt="" />
+                <IconTextBanner className="icon-3">
+                  <img src={WatchIconBanner} alt="" />
+                </IconTextBanner>
                 <p>Entrega rápida e rastreada</p>
               </div>
               <div>
-                <img src={CofferIconBanner} alt="" />
+                <IconTextBanner className="icon-4">
+                  <img src={CofferIconBanner} alt="" />
+                </IconTextBanner>
                 <p>O café chega fresquinho até você</p>
               </div>
             </BannerTextDetails>
