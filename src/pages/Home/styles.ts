@@ -83,3 +83,32 @@ export const IconTextBanner = styled.div`
     background: ${(props) => props.theme["purple-600"]};
   }
 `;
+
+
+export const HomeOurCoffees = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+
+  &.icon-1 {
+    background: ${(props) => props.theme["yellow-700"]};
+  }
+  &.icon-2 {
+    background: ${(props) => props.theme["base-500"]};
+  }
+  &.icon-3 {
+    background: ${(props) => props.theme["yellow-500"]};
+  }
+  &.icon-4 {
+    background: ${(props) => props.theme["purple-600"]};
+  }
+`;
+export const OurCoffeeProducts = styled.div`
+  
+`;
+export const OurCoffeeShelf = styled.div`
+  
+`;

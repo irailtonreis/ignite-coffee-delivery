@@ -7,6 +7,9 @@ import {
   BannerImage,
   BannerTextDetails,
   IconTextBanner,
+  HomeOurCoffees,
+  OurCoffeeProducts,
+  OurCoffeeShelf
 } from "./styles";
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
@@ -57,6 +60,14 @@ const Home: React.FC = () => {
           </BannerImage>
         </HomeBanner>
       </HomeBannerContainer>
+      <HomeOurCoffees>
+        <h2>Nossos cafés</h2>
+        <OurCoffeeProducts>
+          <OurCoffeeShelf>
+
+          </OurCoffeeShelf>
+        </OurCoffeeProducts>
+      </HomeOurCoffees>
     </HomeContainer>
   );
 };
