@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HomeContainer,
   HomeBannerContainer,
@@ -9,15 +9,31 @@ import {
   IconTextBanner,
   HomeOurCoffees,
   OurCoffeeProducts,
-  OurCoffeeShelf
+  OurCoffeeShelf,
+  CoffeeItem,
+  BuyButtonAndPrice,
+  AddToCart
 } from "./styles";
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
 import WrapperIconBanner from "../../assets/wrapper-icon-banner.svg";
 import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
+import CoffeeImage from "../../assets/coffee-1.png";
+import { ShoppingCart } from "phosphor-react";
 
 const Home: React.FC = () => {
+  const [quantity, setQuantity] = useState(0);
+
+  const incrementar = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementar = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
   return (
     <HomeContainer>
       <HomeBannerContainer>
@@ -64,7 +80,21 @@ const Home: React.FC = () => {
         <h2>Nossos cafés</h2>
         <OurCoffeeProducts>
           <OurCoffeeShelf>
-
+            <CoffeeItem>
+              <img src={CoffeeImage} alt="" />
+              <strong>Tradicional</strong>
+              <h3>Expresso Tradicional</h3>
+              <p>O tradicional café feito com água quente e grãos moídos</p>
+              <BuyButtonAndPrice>
+                <strong>R$ <span> 9,90</span></strong>
+                <div>
+                <button onClick={decrementar}>-</button>
+                <input type="number" value={quantity} readOnly />
+                <button onClick={incrementar}>+</button>
+              </div>
+              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+              </BuyButtonAndPrice>
+            </CoffeeItem>
           </OurCoffeeShelf>
         </OurCoffeeProducts>
       </HomeOurCoffees>

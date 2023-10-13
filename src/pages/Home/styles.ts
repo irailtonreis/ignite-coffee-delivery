@@ -89,6 +89,7 @@ export const HomeOurCoffees = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -110,5 +111,37 @@ export const OurCoffeeProducts = styled.div`
   
 `;
 export const OurCoffeeShelf = styled.div`
-  
+  display: flex;
+  background: ${(props) => props.theme["white-200"]};
+`;
+
+export const CoffeeItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: 256px;
+  min-height: 310px;
+`;
+
+export const BuyButtonAndPrice = styled.div`
+  display: flex;
+  flex-direction: row;
+   div{
+    display: flex;
+    justify-content: space-around;
+    input{
+      max-width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+`;
+export const AddToCart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => props.theme["purple-800"]};
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
 `;
