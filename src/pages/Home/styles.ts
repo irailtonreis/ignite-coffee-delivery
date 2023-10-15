@@ -87,24 +87,14 @@ export const IconTextBanner = styled.div`
 
 export const HomeOurCoffees = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
 
-  &.icon-1 {
-    background: ${(props) => props.theme["yellow-700"]};
-  }
-  &.icon-2 {
-    background: ${(props) => props.theme["base-500"]};
-  }
-  &.icon-3 {
-    background: ${(props) => props.theme["yellow-500"]};
-  }
-  &.icon-4 {
-    background: ${(props) => props.theme["purple-600"]};
+   > h2{
+    margin-bottom: 56px;
+    text-align: left;
+    display: flex;
   }
 `;
 export const OurCoffeeProducts = styled.div`
@@ -112,19 +102,68 @@ export const OurCoffeeProducts = styled.div`
 `;
 export const OurCoffeeShelf = styled.div`
   display: flex;
-  background: ${(props) => props.theme["white-200"]};
+  gap: 32px;
 `;
 
 export const CoffeeItem = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 256px;
+  max-width: 256px;
   min-height: 310px;
+  border-radius: 6px 36px;
+  padding: 24px;
+  img{
+    border-top-right-radius: 36px;
+  }
+
+  h3{
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  p{
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: ${(props) => props.theme["base-400"]};
+    text-align: center;
+    margin-bottom: 33px;
+  }
+
+  background:  #F3F2F2;
+
+
 `;
 
+
+
+export const FlagItem = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 20px;
+  strong{
+    color: ${(props) => props.theme["yellow-700"]};
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; 
+    text-transform: uppercase;
+    border-radius: 100px;
+    background: ${(props) => props.theme["yellow-200"]};
+    padding: 4px 8px;
+  }
+   
+`;
 export const BuyButtonAndPrice = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
    div{
     display: flex;
     justify-content: space-around;

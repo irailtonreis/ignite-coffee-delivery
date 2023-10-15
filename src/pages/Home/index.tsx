@@ -12,7 +12,8 @@ import {
   OurCoffeeShelf,
   CoffeeItem,
   BuyButtonAndPrice,
-  AddToCart
+  AddToCart,
+  FlagItem
 } from "./styles";
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
@@ -82,7 +83,68 @@ const Home: React.FC = () => {
           <OurCoffeeShelf>
             <CoffeeItem>
               <img src={CoffeeImage} alt="" />
-              <strong>Tradicional</strong>
+              <FlagItem>
+                <strong>Especial</strong>
+                <strong>Alcoólico</strong>
+                <strong>Gelado</strong>
+              </FlagItem>
+              <h3>Expresso Tradicional</h3>
+              <p>O tradicional café feito com água quente e grãos moídos</p>
+              <BuyButtonAndPrice>
+                <strong>R$ <span> 9,90</span></strong>
+                <div>
+                <button onClick={decrementar}>-</button>
+                <input type="number" value={quantity} readOnly />
+                <button onClick={incrementar}>+</button>
+              </div>
+              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+              </BuyButtonAndPrice>
+            </CoffeeItem>
+            <CoffeeItem>
+              <img src={CoffeeImage} alt="" />
+              <FlagItem>
+                <strong>Especial</strong>
+                <strong>Alcoólico</strong>
+                <strong>Gelado</strong>
+              </FlagItem>
+              <h3>Expresso Tradicional</h3>
+              <p>O tradicional café feito com água quente e grãos moídos</p>
+              <BuyButtonAndPrice>
+                <strong>R$ <span> 9,90</span></strong>
+                <div>
+                <button onClick={decrementar}>-</button>
+                <input type="number" value={quantity} readOnly />
+                <button onClick={incrementar}>+</button>
+              </div>
+              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+              </BuyButtonAndPrice>
+            </CoffeeItem>
+            <CoffeeItem>
+              <img src={CoffeeImage} alt="" />
+              <FlagItem>
+                <strong>Especial</strong>
+                <strong>Alcoólico</strong>
+                <strong>Gelado</strong>
+              </FlagItem>
+              <h3>Expresso Tradicional</h3>
+              <p>O tradicional café feito com água quente e grãos moídos</p>
+              <BuyButtonAndPrice>
+                <strong>R$ <span> 9,90</span></strong>
+                <div>
+                <button onClick={decrementar}>-</button>
+                <input type="number" value={quantity} readOnly />
+                <button onClick={incrementar}>+</button>
+              </div>
+              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+              </BuyButtonAndPrice>
+            </CoffeeItem>
+            <CoffeeItem>
+              <img src={CoffeeImage} alt="" />
+              <FlagItem>
+                <strong>Especial</strong>
+                <strong>Alcoólico</strong>
+                <strong>Gelado</strong>
+              </FlagItem>
               <h3>Expresso Tradicional</h3>
               <p>O tradicional café feito com água quente e grãos moídos</p>
               <BuyButtonAndPrice>

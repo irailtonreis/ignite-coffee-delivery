@@ -23,6 +23,14 @@ body, input, textarea, button{
     font-size: 1rem;
     -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3, h4, h5{
+font-family: "Baloo 2", Arial, Helvetica, sans-serif;
+}
+
+p, strong, span{
+font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
 `
 
 const breakpoints = {
