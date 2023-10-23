@@ -13,7 +13,11 @@ import {
   CoffeeItem,
   BuyButtonAndPrice,
   AddToCart,
-  FlagItem
+  FlagItem,
+  Quantity, 
+  MinusButton,
+  PlusButton,
+  Price
 } from "./styles";
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
@@ -21,7 +25,7 @@ import WrapperIconBanner from "../../assets/wrapper-icon-banner.svg";
 import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
 import CoffeeImage from "../../assets/coffee-1.png";
-import { ShoppingCart } from "phosphor-react";
+import { Minus, Plus, ShoppingCart } from "phosphor-react";
 
 const Home: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
@@ -91,12 +95,12 @@ const Home: React.FC = () => {
               <h3>Expresso Tradicional</h3>
               <p>O tradicional café feito com água quente e grãos moídos</p>
               <BuyButtonAndPrice>
-                <strong>R$ <span> 9,90</span></strong>
-                <div>
-                <button onClick={decrementar}>-</button>
-                <input type="number" value={quantity} readOnly />
-                <button onClick={incrementar}>+</button>
-              </div>
+                <Price>R$ <span> 9,90</span></Price>
+                <Quantity>
+                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
+                <input type="text" value={quantity} />
+                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
+              </Quantity>
               <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
@@ -110,12 +114,12 @@ const Home: React.FC = () => {
               <h3>Expresso Tradicional</h3>
               <p>O tradicional café feito com água quente e grãos moídos</p>
               <BuyButtonAndPrice>
-                <strong>R$ <span> 9,90</span></strong>
-                <div>
-                <button onClick={decrementar}>-</button>
-                <input type="number" value={quantity} readOnly />
-                <button onClick={incrementar}>+</button>
-              </div>
+                <Price>R$ <span> 9,90</span></Price>
+                <Quantity>
+                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
+                <input type="text" value={quantity} />
+                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
+              </Quantity>
               <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
@@ -129,12 +133,12 @@ const Home: React.FC = () => {
               <h3>Expresso Tradicional</h3>
               <p>O tradicional café feito com água quente e grãos moídos</p>
               <BuyButtonAndPrice>
-                <strong>R$ <span> 9,90</span></strong>
-                <div>
-                <button onClick={decrementar}>-</button>
-                <input type="number" value={quantity} readOnly />
-                <button onClick={incrementar}>+</button>
-              </div>
+                <Price>R$ <span> 9,90</span></Price>
+                <Quantity>
+                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
+                <input type="text" value={quantity} />
+                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
+              </Quantity>
               <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
@@ -148,12 +152,12 @@ const Home: React.FC = () => {
               <h3>Expresso Tradicional</h3>
               <p>O tradicional café feito com água quente e grãos moídos</p>
               <BuyButtonAndPrice>
-                <strong>R$ <span> 9,90</span></strong>
-                <div>
-                <button onClick={decrementar}>-</button>
-                <input type="number" value={quantity} readOnly />
-                <button onClick={incrementar}>+</button>
-              </div>
+                <Price>R$ <span> 9,90</span></Price>
+                <Quantity>
+                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
+                <input type="text" value={quantity} />
+                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
+              </Quantity>
               <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
