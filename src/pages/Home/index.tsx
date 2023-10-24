@@ -27,6 +27,50 @@ import CofferIconBanner from "../../assets/watch-icon-banner.svg";
 import CoffeeImage from "../../assets/coffee-1.png";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 
+type Product = {
+  image: string;
+  flags: string[];
+  title: string;
+  description: string;
+  quantity: number;
+  price: number;
+};
+
+const products: Product[] = [
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional"],
+    "title": "Expresso Tradicional",
+    "description": "O tradicional café feito com água quente e grãos moídos",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional"],
+    "title": "Expresso Americano",
+    "description": "Expresso diluído, menos intenso que o tradicional",
+    "quantity": 10,
+    "price": 10.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional"],
+    "title": "Expresso Cremoso",
+    "description": "Café expresso tradicional com espuma cremosa",
+    "quantity": 10,
+    "price": 12.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "gelado"],
+    "title": "Expresso Gelado",
+    "description": "Bebida preparada com café expresso e cubos de gelo",
+    "quantity": 10,
+    "price": 9.90
+  },
+];
+
 const Home: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
 
@@ -85,82 +129,27 @@ const Home: React.FC = () => {
         <h2>Nossos cafés</h2>
         <OurCoffeeProducts>
           <OurCoffeeShelf>
+          {products.map(product => (
             <CoffeeItem>
-              <img src={CoffeeImage} alt="" />
+              <img src={product.image} alt="" />
               <FlagItem>
-                <strong>Especial</strong>
-                <strong>Alcoólico</strong>
-                <strong>Gelado</strong>
+                {product.flags.map((flag, index) => (
+                  <span key={index}>{flag}</span>
+                ))}
               </FlagItem>
-              <h3>Expresso Tradicional</h3>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
               <BuyButtonAndPrice>
-                <Price>R$ <span> 9,90</span></Price>
+                <Price>R$ <span> {product.price}</span></Price>
                 <Quantity>
-                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
-                <input type="text" value={quantity} />
-                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
-              </Quantity>
-              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+                  <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
+                  <input type="text" value={quantity} />
+                  <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
+                </Quantity>
+                <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
-            <CoffeeItem>
-              <img src={CoffeeImage} alt="" />
-              <FlagItem>
-                <strong>Especial</strong>
-                <strong>Alcoólico</strong>
-                <strong>Gelado</strong>
-              </FlagItem>
-              <h3>Expresso Tradicional</h3>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
-              <BuyButtonAndPrice>
-                <Price>R$ <span> 9,90</span></Price>
-                <Quantity>
-                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
-                <input type="text" value={quantity} />
-                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
-              </Quantity>
-              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
-              </BuyButtonAndPrice>
-            </CoffeeItem>
-            <CoffeeItem>
-              <img src={CoffeeImage} alt="" />
-              <FlagItem>
-                <strong>Especial</strong>
-                <strong>Alcoólico</strong>
-                <strong>Gelado</strong>
-              </FlagItem>
-              <h3>Expresso Tradicional</h3>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
-              <BuyButtonAndPrice>
-                <Price>R$ <span> 9,90</span></Price>
-                <Quantity>
-                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
-                <input type="text" value={quantity} />
-                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
-              </Quantity>
-              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
-              </BuyButtonAndPrice>
-            </CoffeeItem>
-            <CoffeeItem>
-              <img src={CoffeeImage} alt="" />
-              <FlagItem>
-                <strong>Especial</strong>
-                <strong>Alcoólico</strong>
-                <strong>Gelado</strong>
-              </FlagItem>
-              <h3>Expresso Tradicional</h3>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
-              <BuyButtonAndPrice>
-                <Price>R$ <span> 9,90</span></Price>
-                <Quantity>
-                <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
-                <input type="text" value={quantity} />
-                <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
-              </Quantity>
-              <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
-              </BuyButtonAndPrice>
-            </CoffeeItem>
+          ))}
           </OurCoffeeShelf>
         </OurCoffeeProducts>
       </HomeOurCoffees>
