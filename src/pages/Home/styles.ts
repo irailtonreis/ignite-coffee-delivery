@@ -102,6 +102,7 @@ export const OurCoffeeProducts = styled.div`
 `;
 export const OurCoffeeShelf = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
 `;
 

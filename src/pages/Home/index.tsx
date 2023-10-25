@@ -69,6 +69,94 @@ const products: Product[] = [
     "quantity": 10,
     "price": 9.90
   },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Café com Leite",
+    "description": "Meio a meio de expresso tradicional com leite vaporizado",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Latte",
+    "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Latte",
+    "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Capuccino",
+    "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Macchiato",
+    "description": "Café expresso misturado com um pouco de leite quente e espuma",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["tradicional", "com leite"],
+    "title": "Mocaccino",
+    "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["Especial", "com leite"],
+    "title": "Chocolate Quente",
+    "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["Especial", "Alcoólico", "gelado"],
+    "title": "Cubano",
+    "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["Especial"],
+    "title": "Havaiano",
+    "description": "Bebida adocicada preparada com café e leite de coco",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["Especial"],
+    "title": "Árabe",
+    "description": "Bebida preparada com grãos de café árabe e especiarias",
+    "quantity": 10,
+    "price": 9.90
+  },
+  {
+    "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
+    "flags": ["Especial", "Alcoólico"],
+    "title": "Irlandês",
+    "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+    "quantity": 10,
+    "price": 9.90
+  },
 ];
 
 const Home: React.FC = () => {
@@ -83,6 +171,17 @@ const Home: React.FC = () => {
       setQuantity(quantity - 1);
     }
   };
+
+  function formatPriceToReal(valor) {
+    const formatador = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    return formatador.format(valor);
+}
+
+
   return (
     <HomeContainer>
       <HomeBannerContainer>
@@ -134,13 +233,13 @@ const Home: React.FC = () => {
               <img src={product.image} alt="" />
               <FlagItem>
                 {product.flags.map((flag, index) => (
-                  <span key={index}>{flag}</span>
+                  <strong key={index}>{flag}</strong>
                 ))}
               </FlagItem>
               <h3>{product.title}</h3>
               <p>{product.description}</p>
               <BuyButtonAndPrice>
-                <Price>R$ <span> {product.price}</span></Price>
+                <Price><span> {formatPriceToReal(product.price)}</span></Price>
                 <Quantity>
                   <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
                   <input type="text" value={quantity} />
