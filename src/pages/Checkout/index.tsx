@@ -14,9 +14,11 @@ import {
   InputComplement,
   InputNeighborhood,
   InputCity,
-  InputUf
+  InputUf,
+  PaymentText,
+  PaymentOptions
 } from "./styles";
-import { MapPinLine } from "phosphor-react";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 
 const Checkout: React.FC = () => {
   return (
@@ -42,7 +44,21 @@ const Checkout: React.FC = () => {
             </CheckoutAddressForm>
         </CheckoutAddressContent>
       </CheckoutAddress>
-      <CheckoutPayment></CheckoutPayment>
+      <CheckoutPayment>
+      <PaymentText>
+        <CurrencyDollar  color="#8047F8" size={22}/>
+        <div>
+          <h3>Pagamento</h3>
+          <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+        </div>
+      </PaymentText>
+      <PaymentOptions>
+
+      </PaymentOptions>
+        <button><CreditCard size={20} color="#8047F8" /> Cartão de crédito</button>
+        <button><Bank size={20} color="#8047F8" />Cartão de débito</button>
+        <button><Money size={20} color="#8047F8" /> Dinheiro</button>
+      </CheckoutPayment>
       <CheckoutCart>
         <h2>Cafés selecionados</h2>
       </CheckoutCart>

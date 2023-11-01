@@ -32,3 +32,5 @@ export const InputComplement = styled.input``;
 export const InputNeighborhood = styled.input``;
 export const InputCity = styled.input``;
 export const InputUf = styled.input``;
+export const PaymentText = styled.div``;
+export const PaymentOptions = styled.div``;
