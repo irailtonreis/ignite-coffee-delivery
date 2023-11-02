@@ -20,7 +20,8 @@ import {
   CartList,
   ListItem,
   CartTotal,
-  PaymentButton
+  PaymentButton,
+  BuyButton
 } from "./styles";
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
@@ -66,7 +67,7 @@ const Checkout: React.FC = () => {
         
       </CheckoutPayment>
       <CheckoutCart>
-        <h2>Cafés selecionados</h2>
+        {/* <h2>Cafés selecionados</h2> */}
         <CartList>
             <ListItem>
               <div><img src={TumbCoffee}/></div>
@@ -82,6 +83,7 @@ const Checkout: React.FC = () => {
           <div><p>Entrega</p><strong>R$ 29,70</strong></div>
           <div><h3>Total</h3><strong>R$ 33,20</strong></div>
         </CartTotal>
+        <BuyButton>Confirmar</BuyButton>
       </CheckoutCart>
     </CheckoutContainer>
   );

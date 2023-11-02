@@ -1,28 +1,29 @@
 import styled from "styled-components";
 import { devices } from "../../styles/global";
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   selected?: boolean;
 };
 
 export const PaymentButton = styled.button<ButtonProps>`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 1rem;
-    background: ${(props) => props.theme["white-400"]};
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%;
-    text-transform: uppercase;
-    color: ${(props) => props.theme["base-600"]};
-    border: none;
-    border-radius: 6px;
-    ${props => props.selected && `border: 1px solid ${props.theme["purple-600"]}`};
-    ${props => props.selected && `background: ${props.theme["purple-100"]}`};
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem;
+  background: ${(props) => props.theme["white-400"]};
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  text-transform: uppercase;
+  color: ${(props) => props.theme["base-600"]};
+  border: none;
+  border-radius: 6px;
+  ${(props) =>
+    props.selected && `border: 1px solid ${props.theme["purple-600"]}`};
+  ${(props) => props.selected && `background: ${props.theme["purple-100"]}`};
 `;
 
 export const CheckoutContainer = styled.div`
@@ -34,16 +35,15 @@ export const CheckoutContainer = styled.div`
     grid-template-rows: repeat(2, auto);
     gap: 2rem;
 
-    div:nth-child(1){
-        grid-row: 1;
+    div:nth-child(1) {
+      grid-row: 1;
     }
-    div:nth-child(2){
-        grid-row: 2;
+    div:nth-child(2) {
+      grid-row: 2;
     }
-    div:nth-child(3){
-        grid-row: span 2;
+    div:nth-child(3) {
+      grid-row: span 2;
     }
-   
   }
 `;
 export const CheckoutAddress = styled.div`
@@ -63,14 +63,18 @@ export const CheckoutAddress = styled.div`
 `;
 export const HomeContainer = styled.div``;
 export const CheckoutPayment = styled.div`
-    padding: 2.5rem;
-    background: ${(props) => props.theme["white-200"]};
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  padding: 2.5rem;
+  background: ${(props) => props.theme["white-200"]};
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
-export const CheckoutCart = styled.div``;
+export const CheckoutCart = styled.div`
+  padding: 2.5rem;
+  background: ${(props) => props.theme["white-200"]};
+  border-radius: 6px 44px;
+`;
 export const CheckoutAddressContent = styled.div``;
 export const CheckoutFormText = styled.div`
   display: flex;
@@ -147,21 +151,18 @@ export const CheckoutAddressForm = styled.div`
     }
   }
 `;
-export const InputPostalCode = styled.input`
-`;
-export const InputStreet = styled.input`
-`;
+export const InputPostalCode = styled.input``;
+export const InputStreet = styled.input``;
 export const InputNumber = styled.input``;
 export const InputComplement = styled.input``;
-export const InputNeighborhood = styled.input`
-`;
+export const InputNeighborhood = styled.input``;
 export const InputCity = styled.input``;
 export const InputUf = styled.input``;
 export const PaymentText = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  div{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  div {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -170,19 +171,37 @@ export const PaymentText = styled.div`
   }
 `;
 export const PaymentOptions = styled.div`
-display: flex;
-gap: 12px;
+  display: flex;
+  gap: 12px;
 `;
 export const CartList = styled.div`
   display: flex;
   flex-direction: row;
-
 `;
-export const ListItem = styled.div``;
+export const ListItem = styled.div`
+  display: flex;
+`;
 export const CartTotal = styled.div`
   div {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+`;
+
+export const BuyButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 8px;
+  background: ${(props) => props.theme["yellow-500"]};
+  border-radius: 6px;
+  width: 100%;
+  border: none;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+  text-transform: uppercase;
+  color: ${(props) => props.theme["white-100"]};
 `;
