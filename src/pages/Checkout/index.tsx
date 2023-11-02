@@ -34,18 +34,18 @@ const Checkout: React.FC = () => {
               <CheckoutFormText>
                 <MapPinLine className="icone" size={20} color="#C47F17"/>
                 <div>
-                <h3>Endereço de Entrega</h3>
+                <strong>Endereço de Entrega</strong>
                 <p>Informe o endereço onde deseja receber seu pedido</p>
                 </div>
               </CheckoutFormText>
             <CheckoutAddressForm>
-              <InputPostalCode />
-              <InputStreet />
-              <InputNumber />
-              <InputComplement />
-              <InputNeighborhood />
-              <InputCity />
-              <InputUf />
+              <InputPostalCode placeholder="Cep"/>
+              <InputStreet placeholder="Rua"/>
+              <InputNumber placeholder="Número"/>
+              <InputComplement placeholder="Complemento"/>
+              <InputNeighborhood placeholder="Bairro"/>
+              <InputCity placeholder="Cidade"/>
+              <InputUf placeholder="UF"/>
             </CheckoutAddressForm>
         </CheckoutAddressContent>
       </CheckoutAddress>
