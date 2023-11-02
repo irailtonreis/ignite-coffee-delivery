@@ -16,9 +16,14 @@ import {
   InputCity,
   InputUf,
   PaymentText,
-  PaymentOptions
+  PaymentOptions,
+  CartList,
+  ListItem,
+  CartTotal
 } from "./styles";
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import {QuantityButton } from "../../components/QuantityButton"
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
+import TumbCoffee from "../../assets/thumb-coffee.png"
 
 const Checkout: React.FC = () => {
   return (
@@ -61,6 +66,21 @@ const Checkout: React.FC = () => {
       </CheckoutPayment>
       <CheckoutCart>
         <h2>Cafés selecionados</h2>
+        <CartList>
+            <ListItem>
+              <div><img src={TumbCoffee}/></div>
+              <div>
+                <h3>Expresso Tradicional</h3>
+                <div><QuantityButton /><button><Trash size={16} color="#8047F8"/>Remover</button></div>
+              </div>
+              <div>R$ 9,90</div>
+            </ListItem>
+        </CartList>
+        <CartTotal>
+          <div><p>Total de itens</p><strong>R$ 29,70</strong></div>
+          <div><p>Entrega</p><strong>R$ 29,70</strong></div>
+          <div><h3>Total</h3><strong>R$ 33,20</strong></div>
+        </CartTotal>
       </CheckoutCart>
     </CheckoutContainer>
   );

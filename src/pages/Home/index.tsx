@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   HomeContainer,
   HomeBannerContainer,
@@ -14,17 +14,15 @@ import {
   BuyButtonAndPrice,
   AddToCart,
   FlagItem,
-  Quantity, 
-  MinusButton,
-  PlusButton,
   Price
 } from "./styles";
+
+import { QuantityButton } from "../../components/QuantityButton"
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
 import WrapperIconBanner from "../../assets/wrapper-icon-banner.svg";
 import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
-import CoffeeImage from "../../assets/coffee-1.png";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 
 type Product = {
@@ -160,17 +158,7 @@ const products: Product[] = [
 ];
 
 const Home: React.FC = () => {
-  const [quantity, setQuantity] = useState(0);
-
-  const incrementar = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decrementar = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
+ 
 
   function formatPriceToReal(valor) {
     const formatador = new Intl.NumberFormat('pt-BR', {
@@ -240,11 +228,7 @@ const Home: React.FC = () => {
               <p>{product.description}</p>
               <BuyButtonAndPrice>
                 <Price><span> {formatPriceToReal(product.price)}</span></Price>
-                <Quantity>
-                  <MinusButton onClick={decrementar}><Minus color="#8047F8" size={14}/></MinusButton>
-                  <input type="text" value={quantity} />
-                  <PlusButton onClick={incrementar}><Plus color="#8047F8" size={14}/></PlusButton>
-                </Quantity>
+               <QuantityButton />
                 <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>

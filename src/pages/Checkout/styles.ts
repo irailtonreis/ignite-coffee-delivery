@@ -34,3 +34,16 @@ export const InputCity = styled.input``;
 export const InputUf = styled.input``;
 export const PaymentText = styled.div``;
 export const PaymentOptions = styled.div``;
+export const CartList = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+export const ListItem = styled.div``;
+export const CartTotal = styled.div`
+    div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+`;
