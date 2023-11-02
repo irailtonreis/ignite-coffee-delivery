@@ -1,8 +1,50 @@
 import styled from "styled-components";
 import { devices } from "../../styles/global";
+import { ButtonHTMLAttributes } from 'react';
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  selected?: boolean;
+};
+
+export const PaymentButton = styled.button<ButtonProps>`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 1rem;
+    background: ${(props) => props.theme["white-400"]};
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: ${(props) => props.theme["base-600"]};
+    border: none;
+    border-radius: 6px;
+    ${props => props.selected && `border: 1px solid ${props.theme["purple-600"]}`};
+    ${props => props.selected && `background: ${props.theme["purple-100"]}`};
+`;
 
 export const CheckoutContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and ${devices.lg} {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+
+    div:nth-child(1){
+        grid-row: 1;
+    }
+    div:nth-child(2){
+        grid-row: 2;
+    }
+    div:nth-child(3){
+        grid-row: span 2;
+    }
+   
+  }
 `;
 export const CheckoutAddress = styled.div`
   padding: 2.5rem;
@@ -20,7 +62,14 @@ export const CheckoutAddress = styled.div`
   min-width: 640px;
 `;
 export const HomeContainer = styled.div``;
-export const CheckoutPayment = styled.div``;
+export const CheckoutPayment = styled.div`
+    padding: 2.5rem;
+    background: ${(props) => props.theme["white-200"]};
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+`;
 export const CheckoutCart = styled.div``;
 export const CheckoutAddressContent = styled.div``;
 export const CheckoutFormText = styled.div`
@@ -99,23 +148,35 @@ export const CheckoutAddressForm = styled.div`
   }
 `;
 export const InputPostalCode = styled.input`
-  grid-column: span 2;
 `;
 export const InputStreet = styled.input`
-  grid-column: span 2;
 `;
 export const InputNumber = styled.input``;
 export const InputComplement = styled.input``;
 export const InputNeighborhood = styled.input`
-  grid-column: span 2;
 `;
 export const InputCity = styled.input``;
 export const InputUf = styled.input``;
-export const PaymentText = styled.div``;
-export const PaymentOptions = styled.div``;
+export const PaymentText = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 8px;
+  }
+`;
+export const PaymentOptions = styled.div`
+display: flex;
+gap: 12px;
+`;
 export const CartList = styled.div`
   display: flex;
   flex-direction: row;
+
 `;
 export const ListItem = styled.div``;
 export const CartTotal = styled.div`

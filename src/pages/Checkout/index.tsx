@@ -19,7 +19,8 @@ import {
   PaymentOptions,
   CartList,
   ListItem,
-  CartTotal
+  CartTotal,
+  PaymentButton
 } from "./styles";
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
@@ -58,11 +59,11 @@ const Checkout: React.FC = () => {
         </div>
       </PaymentText>
       <PaymentOptions>
-
+        <PaymentButton selected ><CreditCard size={20} color="#8047F8" /> Cartão de crédito</PaymentButton>
+        <PaymentButton><Bank size={20} color="#8047F8" />Cartão de débito</PaymentButton>
+        <PaymentButton><Money size={20} color="#8047F8" /> Dinheiro</PaymentButton>
       </PaymentOptions>
-        <button><CreditCard size={20} color="#8047F8" /> Cartão de crédito</button>
-        <button><Bank size={20} color="#8047F8" />Cartão de débito</button>
-        <button><Money size={20} color="#8047F8" /> Dinheiro</button>
+        
       </CheckoutPayment>
       <CheckoutCart>
         <h2>Cafés selecionados</h2>
