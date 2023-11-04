@@ -46,6 +46,12 @@ export const CheckoutContainer = styled.div`
     }
   }
 `;
+export const AddressContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+
 export const CheckoutAddress = styled.div`
   padding: 2.5rem;
   background: ${(props) => props.theme["white-200"]};
@@ -70,7 +76,14 @@ export const CheckoutPayment = styled.div`
   flex-direction: column;
   gap: 2rem;
 `;
+
 export const CheckoutCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
+export const CheckoutContentCart = styled.div`
   padding: 2.5rem;
   background: ${(props) => props.theme["white-200"]};
   border-radius: 6px 44px;

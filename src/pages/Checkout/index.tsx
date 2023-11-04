@@ -5,6 +5,7 @@ import {
   CheckoutAddress,
   CheckoutPayment,
   CheckoutCart,
+  CheckoutContentCart,
   CheckoutAddressContent,
   CheckoutFormText,
   CheckoutAddressForm,
@@ -21,7 +22,8 @@ import {
   ListItem,
   CartTotal,
   PaymentButton,
-  BuyButton
+  BuyButton,
+  AddressContainer
 } from "./styles";
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
@@ -30,8 +32,10 @@ import TumbCoffee from "../../assets/thumb-coffee.png"
 const Checkout: React.FC = () => {
   return (
     <CheckoutContainer>
-      <CheckoutAddress>
+      <AddressContainer>
         <h2>Complete seu pedido</h2>
+      <CheckoutAddress>
+        
         <CheckoutAddressContent>
               <CheckoutFormText>
                 <MapPinLine className="icone" size={20} color="#C47F17"/>
@@ -51,6 +55,7 @@ const Checkout: React.FC = () => {
             </CheckoutAddressForm>
         </CheckoutAddressContent>
       </CheckoutAddress>
+      </AddressContainer>
       <CheckoutPayment>
       <PaymentText>
         <CurrencyDollar  color="#8047F8" size={22}/>
@@ -67,7 +72,8 @@ const Checkout: React.FC = () => {
         
       </CheckoutPayment>
       <CheckoutCart>
-        {/* <h2>Cafés selecionados</h2> */}
+      <h2>Cafés selecionados</h2>
+        <CheckoutContentCart>
         <CartList>
             <ListItem>
               <div><img src={TumbCoffee}/></div>
@@ -84,6 +90,7 @@ const Checkout: React.FC = () => {
           <div><h3>Total</h3><strong>R$ 33,20</strong></div>
         </CartTotal>
         <BuyButton>Confirmar</BuyButton>
+        </CheckoutContentCart>
       </CheckoutCart>
     </CheckoutContainer>
   );
