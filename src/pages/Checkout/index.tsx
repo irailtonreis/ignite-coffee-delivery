@@ -23,7 +23,11 @@ import {
   CartTotal,
   PaymentButton,
   BuyButton,
-  AddressContainer
+  AddressContainer,
+  QuantityRemove,
+  ListItemDatail,
+  RemoveButton,
+  Total
 } from "./styles";
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
@@ -76,18 +80,28 @@ const Checkout: React.FC = () => {
         <CheckoutContentCart>
         <CartList>
             <ListItem>
-              <div><img src={TumbCoffee}/></div>
-              <div>
+              <img src={TumbCoffee}/>
+              <ListItemDatail>
                 <h3>Expresso Tradicional</h3>
-                <div><QuantityButton /><button><Trash size={16} color="#8047F8"/>Remover</button></div>
-              </div>
-              <div>R$ 9,90</div>
+                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
+              </ListItemDatail>
+              <span>R$ 9,90</span>
+            </ListItem>
+        </CartList>
+        <CartList>
+            <ListItem>
+              <img src={TumbCoffee}/>
+              <ListItemDatail>
+                <h3>Expresso Tradicional</h3>
+                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
+              </ListItemDatail>
+              <span>R$ 9,90</span>
             </ListItem>
         </CartList>
         <CartTotal>
           <div><p>Total de itens</p><strong>R$ 29,70</strong></div>
           <div><p>Entrega</p><strong>R$ 29,70</strong></div>
-          <div><h3>Total</h3><strong>R$ 33,20</strong></div>
+          <Total><h3>Total</h3><strong>R$ 33,20</strong></Total>
         </CartTotal>
         <BuyButton>Confirmar</BuyButton>
         </CheckoutContentCart>
