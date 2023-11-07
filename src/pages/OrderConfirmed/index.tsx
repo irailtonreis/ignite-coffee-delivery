@@ -31,7 +31,7 @@ const OrderConfirmed: React.FC = () => {
           </div>
           <div>
             <Circle color="yellow-700">
-              <CurrencyDollar size={16} />
+              <CurrencyDollar size={16} color="white" />
             </Circle>
             <p>
               Pagamento na entrega <span>Cartão de Crédito</span>
