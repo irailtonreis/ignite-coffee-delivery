@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { devices } from "../../styles/global";
-import {} from "react";
-
 type DivProps = {
   color: string;
 };
