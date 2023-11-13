@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  LayoutBackground,
   HomeContainer,
   HomeBannerContainer,
   HomeBanner,
@@ -16,6 +17,7 @@ import {
   FlagItem,
   Price
 } from "./styles";
+import { DefaultContainer } from "../../layouts/DefaultLayout";
 
 import { QuantityButton } from "../../components/QuantityButton"
 import BannerCoffee from "../../assets/banner-coffee.png";
@@ -23,7 +25,7 @@ import CartIconBanner from "../../assets/cart-icon-banner.svg";
 import WrapperIconBanner from "../../assets/wrapper-icon-banner.svg";
 import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "phosphor-react";
 
 type Product = {
   image: string;
@@ -172,7 +174,9 @@ const Home: React.FC = () => {
 
   return (
     <HomeContainer>
-      <HomeBannerContainer>
+      <LayoutBackground >
+        <DefaultContainer>
+        <HomeBannerContainer>
         <HomeBanner>
           <BannerText>
             <h1>Encontre o café perfeito para qualquer hora do dia</h1>
@@ -212,6 +216,10 @@ const Home: React.FC = () => {
           </BannerImage>
         </HomeBanner>
       </HomeBannerContainer>
+        </DefaultContainer>
+     
+      </LayoutBackground>
+      <DefaultContainer>
       <HomeOurCoffees>
         <h2>Nossos cafés</h2>
         <OurCoffeeProducts>
@@ -236,6 +244,8 @@ const Home: React.FC = () => {
           </OurCoffeeShelf>
         </OurCoffeeProducts>
       </HomeOurCoffees>
+      </DefaultContainer>
+
     </HomeContainer>
   );
 };

@@ -1,17 +1,25 @@
-import React from "react";
-import { LayoutContainerFull, LayoutContainer } from "./styles";
+import React, { ReactNode } from "react";
+import { LayoutContainer } from "./styles";
 import Header from "../../components/Header/Header";
 import { Outlet } from "react-router-dom";
 
-const DefaultLayout: React.FC = () => {
+interface DefaultLayoutProps {
+  children: ReactNode;
+}
+
+export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
-    <LayoutContainerFull>
+    <>
       <LayoutContainer>
         <Header />
         <Outlet />
       </LayoutContainer>
-    </LayoutContainerFull>
+      {children}
+    </>
   );
 };
-
-export default DefaultLayout;
+export const DefaultContainer: React.FC<DefaultLayoutProps> = ({
+  children,
+}) => {
+  return <LayoutContainer>{children}</LayoutContainer>;
+};

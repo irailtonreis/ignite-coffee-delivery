@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { devices } from "../../styles/global"
 
+import bannerBackground from "../../assets/banner-background.png"
+
+export const LayoutBackground = styled.div`
+  background-image: url(${bannerBackground});
+  max-width: 100%;
+`
+
 export const HomeContainer = styled.div``;
 export const HomeBannerContainer = styled.div``;
 export const HomeBanner = styled.div`
