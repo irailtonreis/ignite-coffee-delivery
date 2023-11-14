@@ -4,7 +4,7 @@ import {
     useState,
   } from 'react'
 
-  type Product = {
+  export type Product = {
     image: string;
     flags: string[];
     title: string;
@@ -15,7 +15,7 @@ import {
 
   interface OrderContexType {
     order: Product[]
-    setOrder: (data: Product[]) => void
+    setOrder: React.Dispatch<React.SetStateAction<Product[]>>
   }
 
   interface OrderContextProviderProps {
@@ -29,6 +29,7 @@ import {
   }: OrderContextProviderProps) {
 
     const [order, setOrder] = useState<Product[]>([])
+    console.log("🚀 ~ file: OrderContext.tsx:32 ~ order:", order)
 
     return (
         <OrderContext.Provider

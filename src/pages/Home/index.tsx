@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   LayoutBackground,
   HomeContainer,
@@ -18,7 +18,6 @@ import {
   Price
 } from "./styles";
 import { DefaultContainer } from "../../layouts/DefaultLayout";
-
 import { QuantityButton } from "../../components/QuantityButton"
 import BannerCoffee from "../../assets/banner-coffee.png";
 import CartIconBanner from "../../assets/cart-icon-banner.svg";
@@ -26,15 +25,7 @@ import WrapperIconBanner from "../../assets/wrapper-icon-banner.svg";
 import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
 import { ShoppingCart } from "phosphor-react";
-
-type Product = {
-  image: string;
-  flags: string[];
-  title: string;
-  description: string;
-  quantity: number;
-  price: number;
-};
+import { OrderContext, Product } from "../../Contexts/OrderContext";
 
 const products: Product[] = [
   {
@@ -160,7 +151,7 @@ const products: Product[] = [
 ];
 
 const Home: React.FC = () => {
- 
+  const { setOrder } = useContext(OrderContext)
 
   function formatPriceToReal(valor) {
     const formatador = new Intl.NumberFormat('pt-BR', {
@@ -171,6 +162,9 @@ const Home: React.FC = () => {
     return formatador.format(valor);
 }
 
+const handleClick = (product: Product) => {
+  setOrder(prevOrder => [...prevOrder, product]);
+};
 
   return (
     <HomeContainer>
@@ -237,7 +231,7 @@ const Home: React.FC = () => {
               <BuyButtonAndPrice>
                 <Price><span> {formatPriceToReal(product.price)}</span></Price>
                <QuantityButton />
-                <AddToCart><ShoppingCart color="#FFF" size={22}/></AddToCart>
+                <AddToCart onClick={()=>handleClick(product)}><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
           ))}
