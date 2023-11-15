@@ -26,6 +26,7 @@ import WatchIconBanner from "../../assets/wrapper-icon-banner.svg";
 import CofferIconBanner from "../../assets/watch-icon-banner.svg";
 import { ShoppingCart } from "phosphor-react";
 import { OrderContext, Product } from "../../Contexts/OrderContext";
+import { formatPriceToReal } from "../../utils/index"
 
 const products: Product[] = [
   {
@@ -152,15 +153,6 @@ const products: Product[] = [
 
 const Home: React.FC = () => {
   const { setOrder } = useContext(OrderContext)
-
-  function formatPriceToReal(valor) {
-    const formatador = new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-
-    return formatador.format(valor);
-}
 
 const handleClick = (product: Product) => {
   setOrder(prevOrder => [...prevOrder, product]);

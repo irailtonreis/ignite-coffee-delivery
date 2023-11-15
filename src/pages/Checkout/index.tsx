@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   CheckoutContainer,
@@ -32,8 +32,12 @@ import {
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
 import TumbCoffee from "../../assets/thumb-coffee.png"
+import { OrderContext } from "../../Contexts/OrderContext";
+import { formatPriceToReal } from "../../utils/index"
 
 const Checkout: React.FC = () => {
+  const { order } = useContext(OrderContext)
+
   return (
     <CheckoutContainer>
       <AddressContainer>
@@ -78,26 +82,20 @@ const Checkout: React.FC = () => {
       <CheckoutCart>
       <h2>Cafés selecionados</h2>
         <CheckoutContentCart>
-        <CartList>
-            <ListItem>
+          {
+            order.map((item)=> (
+              <CartList>
+              <ListItem>
               <img src={TumbCoffee}/>
               <ListItemDatail>
-                <h3>Expresso Tradicional</h3>
+                <h3>{item.title}</h3>
                 <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
               </ListItemDatail>
-              <span>R$ 9,90</span>
+              <span>{formatPriceToReal(item.price)}</span>
             </ListItem>
-        </CartList>
-        <CartList>
-            <ListItem>
-              <img src={TumbCoffee}/>
-              <ListItemDatail>
-                <h3>Expresso Tradicional</h3>
-                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
-              </ListItemDatail>
-              <span>R$ 9,90</span>
-            </ListItem>
-        </CartList>
+          </CartList>
+            ))
+          }
         <CartTotal>
           <div><p>Total de itens</p><strong>R$ 29,70</strong></div>
           <div><p>Entrega</p><strong>R$ 29,70</strong></div>
