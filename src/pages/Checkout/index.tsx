@@ -36,8 +36,12 @@ import { OrderContext } from "../../Contexts/OrderContext";
 import { formatPriceToReal } from "../../utils/index"
 
 const Checkout: React.FC = () => {
-  const { order } = useContext(OrderContext)
+  const { order, setOrder } = useContext(OrderContext)
 
+  const removeItem = (itemId: string) => {
+      const newOrder = order.filter(item => item.id !== itemId)
+      setOrder(newOrder)
+  }
   return (
     <CheckoutContainer>
       <AddressContainer>
@@ -89,7 +93,7 @@ const Checkout: React.FC = () => {
               <img src={TumbCoffee}/>
               <ListItemDatail>
                 <h3>{item.title}</h3>
-                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
+                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8" onClick={()=>removeItem(item.id)}/>Remover</RemoveButton></QuantityRemove>
               </ListItemDatail>
               <span>{formatPriceToReal(item.price)}</span>
             </ListItem>

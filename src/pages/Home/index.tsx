@@ -27,9 +27,12 @@ import CofferIconBanner from "../../assets/watch-icon-banner.svg";
 import { ShoppingCart } from "phosphor-react";
 import { OrderContext, Product } from "../../Contexts/OrderContext";
 import { formatPriceToReal } from "../../utils/index"
+import { v4 as uuidv4 } from 'uuid';
+
 
 const products: Product[] = [
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional"],
     "title": "Expresso Tradicional",
@@ -38,6 +41,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional"],
     "title": "Expresso Americano",
@@ -46,6 +50,7 @@ const products: Product[] = [
     "price": 10.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional"],
     "title": "Expresso Cremoso",
@@ -54,6 +59,7 @@ const products: Product[] = [
     "price": 12.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "gelado"],
     "title": "Expresso Gelado",
@@ -62,6 +68,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Café com Leite",
@@ -70,6 +77,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Latte",
@@ -78,6 +86,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Latte",
@@ -86,6 +95,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Capuccino",
@@ -94,6 +104,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Macchiato",
@@ -102,6 +113,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["tradicional", "com leite"],
     "title": "Mocaccino",
@@ -110,6 +122,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["Especial", "com leite"],
     "title": "Chocolate Quente",
@@ -118,6 +131,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["Especial", "Alcoólico", "gelado"],
     "title": "Cubano",
@@ -126,6 +140,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["Especial"],
     "title": "Havaiano",
@@ -134,6 +149,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["Especial"],
     "title": "Árabe",
@@ -142,6 +158,7 @@ const products: Product[] = [
     "price": 9.90
   },
   {
+    "id": uuidv4(),
     "image": "https://i.postimg.cc/NjwSZCyv/coffee-01.png",
     "flags": ["Especial", "Alcoólico"],
     "title": "Irlandês",

@@ -5,6 +5,7 @@ import {
   } from 'react'
 
   export type Product = {
+    id: string;
     image: string;
     flags: string[];
     title: string;
