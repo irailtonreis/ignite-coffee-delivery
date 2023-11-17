@@ -40,6 +40,7 @@ const Checkout: React.FC = () => {
 
   const removeItem = (itemId: string) => {
       const newOrder = order.filter(item => item.id !== itemId)
+      console.log("🚀 ~ file: index.tsx:43 ~ removeItem ~ newOrder:", newOrder)
       setOrder(newOrder)
   }
   return (
@@ -93,7 +94,7 @@ const Checkout: React.FC = () => {
               <img src={TumbCoffee}/>
               <ListItemDatail>
                 <h3>{item.title}</h3>
-                <QuantityRemove><QuantityButton /><RemoveButton><Trash size={16} color="#8047F8" onClick={()=>removeItem(item.id)}/>Remover</RemoveButton></QuantityRemove>
+                <QuantityRemove><QuantityButton quantity={item.quantity} /><RemoveButton  onClick={()=>removeItem(item.id)}><Trash size={16} color="#8047F8"/>Remover</RemoveButton></QuantityRemove>
               </ListItemDatail>
               <span>{formatPriceToReal(item.price)}</span>
             </ListItem>

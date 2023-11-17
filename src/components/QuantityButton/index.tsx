@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Minus, Plus } from "phosphor-react";
-
 import { Quantity, MinusButton, PlusButton } from "./styles";
 
-export const QuantityButton: React.FC = () => {
-    const [quantity, setQuantity] = useState(0);
 
-    const incrementar = () => {
-      setQuantity(quantity + 1);
-    };
-  
-    const decrementar = () => {
-      if (quantity > 0) {
-        setQuantity(quantity - 1);
-      }
-    };
+interface QuantityProps {
+  quantity: number
+}
+
+export const QuantityButton: React.FC<QuantityProps> = ({ quantity }) => {
   return (
     <>
       <Quantity>
-        <MinusButton onClick={decrementar}>
+        <MinusButton >
           <Minus color="#8047F8" size={14} />
         </MinusButton>
         <input type="text" value={quantity} />
-        <PlusButton onClick={incrementar}>
+        <PlusButton>
           <Plus color="#8047F8" size={14} />
         </PlusButton>
       </Quantity>

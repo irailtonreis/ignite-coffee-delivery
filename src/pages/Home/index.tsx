@@ -169,11 +169,7 @@ const products: Product[] = [
 ];
 
 const Home: React.FC = () => {
-  const { setOrder } = useContext(OrderContext)
-
-const handleClick = (product: Product) => {
-  setOrder(prevOrder => [...prevOrder, product]);
-};
+  const { addProduct } = useContext(OrderContext)
 
   return (
     <HomeContainer>
@@ -239,8 +235,8 @@ const handleClick = (product: Product) => {
               <p>{product.description}</p>
               <BuyButtonAndPrice>
                 <Price><span> {formatPriceToReal(product.price)}</span></Price>
-               <QuantityButton />
-                <AddToCart onClick={()=>handleClick(product)}><ShoppingCart color="#FFF" size={22}/></AddToCart>
+               <QuantityButton quantity={1} />
+                <AddToCart onClick={()=> addProduct(product)}><ShoppingCart color="#FFF" size={22}/></AddToCart>
               </BuyButtonAndPrice>
             </CoffeeItem>
           ))}
