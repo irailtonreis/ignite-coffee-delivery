@@ -32,16 +32,20 @@ import {
 import {QuantityButton } from "../../components/QuantityButton"
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
 import TumbCoffee from "../../assets/thumb-coffee.png"
-import { OrderContext } from "../../Contexts/OrderContext";
+import { OrderContext, CardType } from "../../Contexts/OrderContext";
 import { formatPriceToReal } from "../../utils/index"
 
 const Checkout: React.FC = () => {
-  const { order, setOrder } = useContext(OrderContext)
+  const { order, paymentType, setPaymentType, setOrder } = useContext(OrderContext)
 
   const removeItem = (itemId: string) => {
       const newOrder = order.filter(item => item.id !== itemId)
       console.log("🚀 ~ file: index.tsx:43 ~ removeItem ~ newOrder:", newOrder)
       setOrder(newOrder)
+  }
+
+  const handlePayment = (value: CardType) => {
+    setPaymentType(value)
   }
   return (
     <CheckoutContainer>
@@ -78,9 +82,9 @@ const Checkout: React.FC = () => {
         </div>
       </PaymentText>
       <PaymentOptions>
-        <PaymentButton selected ><CreditCard size={20} color="#8047F8" /> Cartão de crédito</PaymentButton>
-        <PaymentButton><Bank size={20} color="#8047F8" />Cartão de débito</PaymentButton>
-        <PaymentButton><Money size={20} color="#8047F8" /> Dinheiro</PaymentButton>
+        <PaymentButton selected={paymentType === 'CREDIT'  && true} onClick={()=>handlePayment(CardType.Credit)} ><CreditCard size={20} color="#8047F8" /> Cartão de crédito</PaymentButton>
+        <PaymentButton selected={paymentType === 'DEBIT'  && true} onClick={()=>handlePayment(CardType.Debit)} ><Bank size={20} color="#8047F8" />Cartão de débito</PaymentButton>
+        <PaymentButton selected={paymentType === 'CASH'  && true} onClick={()=>handlePayment(CardType.Cash)} ><Money size={20} color="#8047F8" /> Dinheiro</PaymentButton>
       </PaymentOptions>
         
       </CheckoutPayment>

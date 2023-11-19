@@ -16,9 +16,17 @@ import {
 
   interface OrderContexType {
     order: Product[]
+    paymentType: string
     setOrder: React.Dispatch<React.SetStateAction<Product[]>>
+    setPaymentType: (card: CardType) => void,
     addProduct: (product: Product) => void;
     removeProduct: (product: Product) => void;
+  }
+
+  export enum CardType {
+    Credit = 'CREDIT',
+    Debit = 'DEBIT',
+    Cash = 'CASH',
   }
 
   interface OrderContextProviderProps {
@@ -32,6 +40,7 @@ import {
   }: OrderContextProviderProps) {
 
     const [order, setOrder] = useState<Product[]>([])
+    const [paymentType, setPaymentType] = useState(CardType.Debit)
     console.log("🚀 ~ file: OrderContext.tsx:32 ~ order:", order)
 
     const addProduct = (product: Product) => {
@@ -56,7 +65,7 @@ import {
     };
     return (
         <OrderContext.Provider
-          value={{order, setOrder, addProduct, removeProduct}}
+          value={{order, paymentType, setPaymentType, setOrder, addProduct, removeProduct}}
         >
           {children}
         </OrderContext.Provider>
