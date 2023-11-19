@@ -49,15 +49,10 @@ import {
 
     const removeProduct = (product:Product) => {
       const exist = order.find((x) => x.id === product.id);
-      if (exist?.quantity === 1) {
-        setOrder(order.filter((x) => x.id !== product.id));
-      } else {
-        // setOrder(
-        //   order.map((x) =>
-        //     x.id === product.id ? { ...exist, quantity: exist?.quantity - 1 } : x
-        //   )
-        // );
-      }
+      if (exist) {
+        const removeProduct = order.filter((x) => x.id !== product.id)
+        setOrder(()=>removeProduct);
+      } 
     };
     return (
         <OrderContext.Provider
