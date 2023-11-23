@@ -113,7 +113,7 @@ export const CheckoutFormText = styled.div`
   }
 `;
 
-export const CheckoutAddressForm = styled.div`
+export const CheckoutAddressForm = styled.form`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
