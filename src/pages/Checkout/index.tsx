@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 
 import {
@@ -53,10 +53,36 @@ interface FormInput {
   ufa: string
 }
 
+interface Address {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  ibge: string;
+  gia: string;
+  ddd: string;
+  siafi: string;
+}
+
 const Checkout: React.FC = () => {
   const { order, paymentType, setPaymentType, setOrder } =
     useContext(OrderContext);
     const { register, handleSubmit } = useForm<IFormInput>()
+    const [cep, setCep] = useState("");
+    const [address, setAddress] = useState<Address>()
+
+
+    const buscarCep = async () => {
+      if (cep.length !== 8) return;
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json`);
+      const data = await response.json()
+      setAddress(data);
+    };
+    useEffect(()=>{
+      buscarCep()
+    }, [cep])
 
   const removeItem = (itemId: string) => {
     const newOrder = order.filter((item) => item.id !== itemId);
@@ -85,16 +111,16 @@ const Checkout: React.FC = () => {
              <InputPostalCode
                 placeholder="Cep"
                 {...register("postaColde", {
-                  onChange: (e) => console.log(e),
+                  onChange: (e) => setCep(e.target.value),
                 },
                 )}
               />
-              <InputStreet placeholder="Rua" />
+              <InputStreet placeholder="Rua"  value={address?.logradouro}/>
               <InputNumber placeholder="Número" />
               <InputComplement placeholder="Complemento" />
-              <InputNeighborhood placeholder="Bairro" />
-              <InputCity placeholder="Cidade" />
-              <InputUf placeholder="UF" />
+              <InputNeighborhood placeholder="Bairro" value={address?.bairro} />
+              <InputCity placeholder="Cidade" value={address?.localidade}/>
+              <InputUf placeholder="UF" value={address?.uf} />
             </CheckoutAddressForm>
           </CheckoutAddressContent>
         </CheckoutAddress>

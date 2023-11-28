@@ -36,7 +36,9 @@ const Header: React.FC = () => {
   const fetchAddress = async (latitude: number, longitude: number) => {
     const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`);
     const data = await response.json();
-    setAddress(data.results[0].formatted_address);
+    if(data?.results[0]?.formatted_address){
+      setAddress(data.results[0].formatted_address);
+    }
   };
 
 
