@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
+import { useNavigate } from "react-router-dom";
 
 import {
   CheckoutContainer,
@@ -42,17 +43,6 @@ import {
 import TumbCoffee from "../../assets/thumb-coffee.png";
 import { OrderContext, CardType } from "../../Contexts/OrderContext";
 import { formatPriceToReal } from "../../utils/index";
-
-interface FormInput {
-  cep: string
-  rua: string
-  age: number
-  numero: string
-  bairro: string
-  cidade: string
-  ufa: string
-}
-
 interface Address {
   cep: string;
   logradouro: string;
@@ -60,30 +50,29 @@ interface Address {
   bairro: string;
   localidade: string;
   uf: string;
-  ibge: string;
-  gia: string;
-  ddd: string;
-  siafi: string;
 }
 
 const Checkout: React.FC = () => {
+  const navigate = useNavigate();
   const { order, paymentType, setPaymentType, setOrder } =
     useContext(OrderContext);
-    const { register, handleSubmit } = useForm<IFormInput>()
-    const [cep, setCep] = useState("");
+    const { control, setValue } = useForm()
     const [address, setAddress] = useState<Address>()
+    console.log("🚀 ~ file: index.tsx:77 ~ address:", address)
 
 
-    const buscarCep = async () => {
-      if (cep.length !== 8) return;
-      const response = await fetch(`https://viacep.com.br/ws/${cep}/json`);
-      const data = await response.json()
+    const buscarCep = async (postaColde: string) => {
+      if (postaColde.length !== 8) return;
+      const response = await fetch(`https://viacep.com.br/ws/${postaColde}/json`);
+      const data: Address = await response.json()
+      if(data) {
+        setValue('street', data.logradouro)
+        setValue('district', data.bairro)
+        setValue('city', data.localidade)
+        setValue('state', data.uf)
+      }
       setAddress(data);
     };
-    useEffect(()=>{
-      buscarCep()
-    }, [cep])
-
   const removeItem = (itemId: string) => {
     const newOrder = order.filter((item) => item.id !== itemId);
     console.log("🚀 ~ file: index.tsx:43 ~ removeItem ~ newOrder:", newOrder);
@@ -92,6 +81,13 @@ const Checkout: React.FC = () => {
 
   const handlePayment = (value: CardType) => {
     setPaymentType(value);
+  };
+  const handleConfirmation = () => {
+    navigate("/orderConfirmed");
+  };
+  const handlePostaCodeChange = (e: any) => {
+    buscarCep(e.target.value)
+    console.log("🚀 ~ file: index.tsx:108 ~ handlePostaCodeChange ~ e:", e.target.value)
   };
 
   return (
@@ -108,19 +104,44 @@ const Checkout: React.FC = () => {
               </div>
             </CheckoutFormText>
             <CheckoutAddressForm>
-             <InputPostalCode
-                placeholder="Cep"
-                {...register("postaColde", {
-                  onChange: (e) => setCep(e.target.value),
-                },
-                )}
+              <Controller
+              name="postalCode"
+              control={control}
+              render={({ field }) => <InputPostalCode {...field} 
+              placeholder="Cep" 
+              onChange={handlePostaCodeChange}               
+              />}
               />
-              <InputStreet placeholder="Rua"  value={address?.logradouro}/>
-              <InputNumber placeholder="Número" />
-              <InputComplement placeholder="Complemento" />
-              <InputNeighborhood placeholder="Bairro" value={address?.bairro} />
-              <InputCity placeholder="Cidade" value={address?.localidade}/>
-              <InputUf placeholder="UF" value={address?.uf} />
+              <Controller
+              name="street"
+              control={control}
+              render={({ field }) => <InputStreet {...field} placeholder="Rua" />}
+              />
+            <Controller
+              name="number"
+              control={control}
+              render={({ field }) => <InputNumber {...field} placeholder="Número" />}
+              />
+            <Controller
+              name="complement"
+              control={control}
+              render={({ field }) => <InputComplement {...field}  placeholder="Complemento"/>}
+              />
+            <Controller
+              name="district"
+              control={control}
+              render={({ field }) => <InputNeighborhood {...field} placeholder="Bairro" />}
+              />
+            <Controller
+              name="city"
+              control={control}
+              render={({ field }) => <InputCity {...field} placeholder="Cidade" />}
+              />
+            <Controller
+              name="state"
+              control={control}
+              render={({ field }) => <InputUf {...field}  placeholder="UF"/>}
+              />
             </CheckoutAddressForm>
           </CheckoutAddressContent>
         </CheckoutAddress>
@@ -192,7 +213,7 @@ const Checkout: React.FC = () => {
               <strong>R$ 33,20</strong>
             </Total>
           </CartTotal>
-          <BuyButton>Confirmar</BuyButton>
+          <BuyButton onClick={()=>handleConfirmation()}>Confirmar</BuyButton>
         </CheckoutContentCart>
       </CheckoutCart>
     </CheckoutContainer>
