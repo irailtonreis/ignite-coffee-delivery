@@ -191,6 +191,7 @@ export const AddToCart = styled.div`
   width: 38px;
   height: 38px;
   border-radius: 6px;
+  cursor: pointer;
 `;
 
 export const Price = styled.strong`
